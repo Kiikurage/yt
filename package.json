@@ -1,0 +1,35 @@
+{
+  "name": "yt",
+  "version": "0.0.1",
+  "description": "youtube downloader",
+  "main": "yt",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kikura-yuichiro/yt.git"
+  },
+  "keywords": [],
+  "bin": {
+    "/usr/local/bin/yt": "./yt.js"
+  },
+  "author": {
+    "name": "Yuichiro Kikura",
+    "url": "y.kikura@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kikura-yuichiro/yt/issues"
+  },
+  "homepage": "https://github.com/kikura-yuichiro/yt",
+  "maintainers": [
+    {
+      "name": "kikura-yuichiro",
+      "email": "y.kikura@gmail.com"
+    }
+  ],
+  "dependencies": {
+    "request": "^2.51.0"
+  }
+}
