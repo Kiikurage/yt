@@ -10,6 +10,11 @@ Use npm
 sudo npm install -g yt
 ```
 
+And this module use below files.
+
+- [fpcalc](https://acoustid.org/chromaprint)
+- [ffmpeg](https://www.ffmpeg.org/download.html)
+
 ##Usage
 
 ```bash
