@@ -730,7 +730,7 @@ var yt = {
      *  @return {string} エスケープされた文字列
      */
     escapeCmd: function(input, flagRemove) {
-        var escaped =  ('' + input).replace(/[\;\&\(\)\|\^\<\>\?\*\[\]\$\`\'\"\\\!\{\}\.\n\t\s]/g, function(w) {
+        var escaped =  ('' + input).replace(/[\;\:\&\(\)\|\^\<\>\?\*\[\]\$\`\'\"\\\!\{\}\.\n\t\s]/g, function(w) {
             return '\\' + w
         }).replace(/([\/]|&[^;]*;)/g, function(w) {
             return flagRemove ? '' : '\\' + w
