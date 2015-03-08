@@ -171,7 +171,6 @@ var yt = {
                     .then(yt.createFingerPrint)
                     .then(yt.recognizeAudio)
                     .then(yt.searchMetaOnITunes)
-                    .then(yt.selectMeta)
                     .then(yt.downloadImage)
                     .then(yt.setAudioJacket)
                     .then(yt.setMetadatas)
@@ -594,19 +593,19 @@ var yt = {
                 console.log('Please input search Query,\nor if you want search no more, press ' +
                     Color.Blue + '<Enter>' + Color.Normal + 
                     ' without input anything.');
+
                 return yt.inputFromStdIn()
                     .then(function(input){
                         console.log('');
                         return yt.searchMetaOnITunes(input || false);
                     });
-            },
-            defer;
+            };
 
         if (query === false) {
             console.log('cancel')
-            return
+            return;
         } else if (!query) {
-            return requestSearchQuery()
+            return requestSearchQuery();
         }
 
         url = url
@@ -622,6 +621,7 @@ var yt = {
                 }
 
                 data = JSON.parse(body);
+
                 if (data.resultCount === 0) {
                     console.log(Color.Red + 'error ' + Color.Normal + 'This music is not found on the iTunes database.');
                     resolve(requestSearchQuery());
@@ -629,7 +629,7 @@ var yt = {
                 }
 
                 yt.metadatas.iTunes = data;
-                resolve();
+                resolve(yt.selectMeta());
             });
         })
     },
@@ -638,8 +638,11 @@ var yt = {
      *  メタデータから一つを選択する。
      */
     selectMeta: function() {
+        console.log('selectMeta');
+
         var metaItunes = yt.metadatas.iTunes,
-            results, i, result;
+            results, i, max, result;
+
 
         if (!metaItunes) {
             return
@@ -783,6 +786,7 @@ var yt = {
      *      成功した場合は引数なし、失敗した場合はエラーオブジェクトを渡します。
      */
     setAudioJacket: function() {
+        console.log('setAudioJacket');
         var command = 'ffmpeg -y -i {{audioPath2}} -i {{imagePath}} -acodec copy -vcodec mjpeg -map 0:0 -map 1:0 {{audioPath3}}',
             defer = Promise.defer(),
             audioPath2 = yt.TMP_AUDIO_PATH2,
