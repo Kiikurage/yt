@@ -602,7 +602,8 @@ var yt = {
             };
 
         if (query === false) {
-            console.log('cancel')
+            console.log('cancel');
+            yt.metadatas.acoustID = {};
             return;
         } else if (!query) {
             return requestSearchQuery();
@@ -638,8 +639,6 @@ var yt = {
      *  メタデータから一つを選択する。
      */
     selectMeta: function() {
-        console.log('selectMeta');
-
         var metaItunes = yt.metadatas.iTunes,
             results, i, max, result;
 
@@ -787,7 +786,6 @@ var yt = {
      *      成功した場合は引数なし、失敗した場合はエラーオブジェクトを渡します。
      */
     setAudioJacket: function() {
-        console.log('setAudioJacket');
         var command = 'ffmpeg -y -i {{audioPath2}} -i {{imagePath}} -acodec copy -vcodec mjpeg -map 0:0 -map 1:0 {{audioPath3}}',
             defer = Promise.defer(),
             audioPath2 = yt.TMP_AUDIO_PATH2,
