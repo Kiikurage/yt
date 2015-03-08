@@ -663,6 +663,7 @@ var yt = {
             var selectedIndex, selectedItem;
                 
             if (!data) {
+                yt.metadatas.iTunes = null;
                 return yt.searchMetaOnITunes();
             }
 
