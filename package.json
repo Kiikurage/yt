@@ -1,6 +1,6 @@
 {
-    "name": "yt",
-    "version": "0.0.3",
+    "name": "youtube-downloader",
+    "version": "0.0.2",
     "description": "youtube downloader",
     "main": "yt",
     "scripts": {

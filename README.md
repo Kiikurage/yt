@@ -1,4 +1,4 @@
-#yt
+#youtube-downloader
 
 youtube download module
 
@@ -7,7 +7,7 @@ youtube download module
 Use npm
 
 ```bash
-sudo npm install -g yt
+sudo npm install -g youtube-downloader
 ```
 
 And this module use below files.

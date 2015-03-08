@@ -603,7 +603,10 @@ var yt = {
 
         if (query === false) {
             console.log('cancel');
-            yt.metadatas.acoustID = {};
+            yt.metadatas.acoustID = {
+                artist: 'From Youtube',
+                album: 'From Youtube'
+            };
             return;
         } else if (!query) {
             return requestSearchQuery();
